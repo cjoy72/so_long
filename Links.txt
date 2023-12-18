@@ -1,3 +1,7 @@
 https://reactive.so/post/42-a-comprehensive-guide-to-so_long
 https://github.com/deborabastos/42_so_long
 https://kandi.openweaver.com/c/DanNoKenshi/so_long
+
+Additional:
+
+https://harm-smits.github.io/42docs/libs/minilibx
