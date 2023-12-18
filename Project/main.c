@@ -6,7 +6,7 @@
 /*   By: cjoy720 <cjoy720@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:46:02 by cjoy720           #+#    #+#             */
-/*   Updated: 2023/12/18 13:04:04 by cjoy720          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:47:53 by cjoy720          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int	main(void)
 	if(!mlx_ptr)
 		return (1);
 	win_ptr = mlx_new_window(mlx_ptr, 600, 400, "hi :)");
-	if (!mlx_ptr)
-		return (1);
-	
+	if (!win_ptr)
+		return (free(mlx_ptr), 1);
+	mlx_destroy_window(mlx_ptr, win_ptr);
+	mlx_destroy_display(mlx_ptr);
 	free(mlx_ptr);
 	return (0);
 }
