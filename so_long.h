@@ -6,7 +6,7 @@
 /*   By: calvinjoybaroi <calvinjoybaroi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 09:34:38 by calvinjoyba       #+#    #+#             */
-/*   Updated: 2024/04/09 11:58:50 by calvinjoyba      ###   ########.fr       */
+/*   Updated: 2024/04/09 13:11:36 by calvinjoyba      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,21 @@ char		*ft_strrchr(const char *s, int c);
 int			ft_check_file(char *file);
 int			ft_error(char *str, int exit_code);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+
+// get_next_line.c
+
+static char	*join_free(char *buffer, char *readbuf);
+static char	*clean_buf(char *buffer);
+static char	*extract_line(char *buffer);
+static char	*read_line(char *buffer, char *readbuf, int fd);
+char	*get_next_line(int fd);
+
+// get_next_line_utils.c
+
+int		ft_strlen(const char *s);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
