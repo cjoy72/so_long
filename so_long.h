@@ -6,7 +6,7 @@
 /*   By: calvinjoybaroi <calvinjoybaroi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 09:34:38 by calvinjoyba       #+#    #+#             */
-/*   Updated: 2024/04/09 13:14:17 by calvinjoyba      ###   ########.fr       */
+/*   Updated: 2024/04/09 16:40:19 by calvinjoyba      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,29 @@ void		*ft_memcpy(void *dest, const void *src, size_t n);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strchr(const char *s, int c);
 void		*ft_calloc(size_t nmemb, size_t size);
+
+// get_map.c
+
+static int	flood_fill(char **tmp_map, t_coord player, t_coord mapsize);
+static int	check_floodfill(char **tmp_map);
+void		free_matrix(char **tmp_map);
+static int	check_path(char **map);
+char		**get_map(char *argv, t_game *game);
+
+// get_map_utils.c
+
+int			ft_strlenh(const char *s);
+int			get_height(char *argv);
+char		*ft_itoa(int num);
+int			free_and_destroy(t_game *game);
+void		free_map(chat **map, t_game *game);
+
+// get_map_utils2.c
+
+int			check_wall(char **map, int height);
+int 		check_entities(char **map);
+char		**copy_matrix(char **map);
+int			get_player_coordinate(char **map, int flag);
+int			get_player_coordinate(char **map, int flag);
 
 #endif
