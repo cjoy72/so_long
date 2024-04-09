@@ -6,7 +6,7 @@
 /*   By: calvinjoybaroi <calvinjoybaroi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 09:34:38 by calvinjoyba       #+#    #+#             */
-/*   Updated: 2024/04/09 13:11:36 by calvinjoyba      ###   ########.fr       */
+/*   Updated: 2024/04/09 13:14:17 by calvinjoyba      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 #  define BUFFER_SIZE 1
 # endif
 
-typedef	struct	s_entities
+typedef struct s_entities
 {
 	int	player;
 	int	exit;
@@ -41,13 +41,13 @@ typedef	struct	s_entities
 	int	j;
 }	t_entities;
 
-typedef struct	s_coord
+typedef struct s_coord
 {
 	int	x;
 	int	y;
 }	t_coord;
 
-typedef	struct s_game
+typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
@@ -80,14 +80,14 @@ static char	*join_free(char *buffer, char *readbuf);
 static char	*clean_buf(char *buffer);
 static char	*extract_line(char *buffer);
 static char	*read_line(char *buffer, char *readbuf, int fd);
-char	*get_next_line(int fd);
+char		*get_next_line(int fd);
 
 // get_next_line_utils.c
 
-int		ft_strlen(const char *s);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	*ft_calloc(size_t nmemb, size_t size);
+int			ft_strlen(const char *s);
+void		*ft_memcpy(void *dest, const void *src, size_t n);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strchr(const char *s, int c);
+void		*ft_calloc(size_t nmemb, size_t size);
 
 #endif
