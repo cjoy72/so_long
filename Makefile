@@ -6,7 +6,7 @@
 #    By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 17:37:18 by mtani             #+#    #+#              #
-#    Updated: 2024/05/01 22:14:11 by cbaroi           ###   ########.fr        #
+#    Updated: 2024/05/01 22:27:25 by cbaroi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -rf $(MLX_DIR)
+	rm -rf leaks.log
 
 leaks: all
 	valgrind $(VAL_FLAGS) ./$(NAME) maps/test.ber 2> leaks.log

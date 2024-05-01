@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/calvinjoybaroi/Downloads/so_long",
-      "program": "/Users/calvinjoybaroi/Downloads/so_long/build/Debug/outDebug"
+      "cwd": "/Users/calvinjoybaroi/Documents/so_long/srcs",
+      "program": "/Users/calvinjoybaroi/Documents/so_long/srcs/build/Debug/outDebug"
     }
   ]
 }
