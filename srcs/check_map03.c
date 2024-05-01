@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:01:19 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 17:00:24 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 21:57:17 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,13 @@ int	valid_path(t_game *game, char **argv)
 	tmp_game.player_pos.i = game->player_pos.i;
 	tmp_game.player_pos.j = game->player_pos.j;
 	flood_fill(&tmp_game, tmp_game.player_pos.i, tmp_game.player_pos.j);
-	if (find_char(&tmp_game, 'P') == 1
-		&& find_char(&tmp_game, 'E') == 1
-		&& find_char(&tmp_game, 'C') == 1)
-		validity = 0;
-	else
+	print_map(&tmp_game);
+	if (find_char(&tmp_game, 'P')
+		&& find_char(&tmp_game, 'E')
+		&& find_char(&tmp_game, 'C'))
 		validity = 1;
+	else
+		validity = 0;
 	destroy_map(&tmp_game);
 	return (validity);
 }
@@ -90,4 +91,13 @@ void	find_player_and_exit_position(t_game *game)
 			}
 		}
 	}
+}
+
+void	print_map(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < game->map.height)
+		printf("%s", game->map.map[i]);
 }
