@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:10:59 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/04/30 13:22:05 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 21:06:12 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	update_image_init(t_game *game)
 		if (game->textures[i + 5] == NULL)
 		{
 			printf("%d\n", i);
-			image_error(game, "Error\nmlx_xpm_file_to_image failed\n", i);
+			image_error(game, "Error\nmlx_xpm_file_to_image failed\n", i + 5);
 		}
 	}
 }
