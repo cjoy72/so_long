@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:42:21 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 21:52:08 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 22:16:31 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,6 @@ int	copy_map(t_game *game, char **argv)
 		read(fd, &game->map.map[i][j], 1);
 	}
 	close(fd);
-	printf("Map Height: %d\n", game->map.height);
-	printf("Map Width: %d\n", game->map.width);
-	print_map(game);
 	return (0);
 }
 

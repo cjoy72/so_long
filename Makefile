@@ -6,7 +6,7 @@
 #    By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 17:37:18 by mtani             #+#    #+#              #
-#    Updated: 2024/05/01 17:25:57 by cbaroi           ###   ########.fr        #
+#    Updated: 2024/05/01 22:14:11 by cbaroi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 MLX = "https://github.com/42Paris/minilibx-linux.git"
 MLX_DIR = mlx
 FLAGS = -Lmlx -lmlx -lX11 -lXext
-VAL_FLAGS = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --show-reachable=yes
+VAL_FLAGS = --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes --show-reachable=yes -s
 
 %.o: %.c
 	gcc -Wall -Wextra -Werror -g $(FLAGS) -c $< -o $@
