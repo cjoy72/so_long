@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:17:46 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 21:09:23 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 21:11:24 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_file_check(char *file)
 	int	fd;
 
 	if (open(argv, __O_DIRECTORY) >= 0)
-		exit(1);
+		ft_error("Error\nInvalid file, probably a folder given\n", 1);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		ft_error("Error\nInvalid file, cannot read\n", 1);
