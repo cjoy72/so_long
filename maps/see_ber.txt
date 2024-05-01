@@ -1,0 +1,2 @@
+cat -e 1.ber
+od -c 1.ber

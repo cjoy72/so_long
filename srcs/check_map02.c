@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:42:21 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 22:16:31 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 23:12:21 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ int	copy_map(t_game *game, char **argv)
 		{
 			if (read(fd, &ch, 1) == -1)
 				return (!close(fd));
-			if (ch == '\n')
-				ch = '\0';
 			game->map.map[i][j] = ch;
 			if (j == game->map.width - 1)
 				game->map.map[i][j + 1] = '\0';

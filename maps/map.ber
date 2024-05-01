@@ -1,0 +1,15 @@
+111111
+100E01
+1N0C01
+1PN001
+111111
+
+char *
+"abc"
+"xyz"
+"secpmda"
+"boh"
+
+char **mtx
+
+mtx[3][1] = '

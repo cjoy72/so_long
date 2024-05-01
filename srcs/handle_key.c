@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:19:01 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 16:59:58 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/01 23:11:31 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,13 +135,13 @@ int	handle_key(int key, t_game *game)
 		destroy_everything(game);
 		exit(0);
 	}
-	if (key == XK_W || key == XK_w)
+	if (key == XK_W || key == XK_w || key == XK_Up)
 		move_up(game);
-	if (key == XK_A || key == XK_a)
+	if (key == XK_A || key == XK_a || key == XK_Left)
 		move_left(game);
-	if (key == XK_S || key == XK_s)
+	if (key == XK_S || key == XK_s || key == XK_Down)
 		move_down(game);
-	if (key == XK_D || key == XK_d)
+	if (key == XK_D || key == XK_d || key == XK_Right)
 		move_right(game);
 	return (0);
 }
