@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:42:21 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 23:12:21 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 20:16:42 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_check_wall(t_game *game, char **argv)
 	int	i;
 
 	printf("%s\n ", argv[0]);
+	printf("Map Height: %d\n", game->map.height);
+	printf("Map Width: %d\n", game->map.width);
 	if (game->map.map == NULL)
 		return (1);
 	i = -1;

@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:11:05 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 17:09:03 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 20:47:28 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,23 @@ int	map_height(char **argv)
 	int			fd;
 	static char	buf[1];
 	int			bytes_read;
+	int			total_bytes;
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		ft_error("Error\n", 1);
+	file_descriptor(&fd, argv);
 	height = 0;
+	total_bytes = 0;
 	bytes_read = read(fd, buf, 1);
 	while (bytes_read != 0)
 	{
 		if (buf[0] == '\n')
 			height++;
+		else
+			total_bytes++;
 		bytes_read = read(fd, buf, 1);
 	}
+	if (total_bytes % height != 0)
+		height = height - 1;
 	close(fd);
-	if (bytes_read == -1)
-		ft_error("Error\n", 1);
 	return (height);
 }
 

@@ -6,11 +6,18 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:01:19 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 22:24:48 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 20:47:42 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+void	file_descriptor(int *fd, char **argv)
+{
+	*fd = open(argv[1], O_RDONLY);
+	if (*fd == -1)
+		ft_error("Error\n", 1);
+}
 
 int	find_char(t_game *game, char c)
 {
