@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:01:19 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 20:47:42 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 23:42:03 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	find_char(t_game *game, char c)
 		j = -1;
 		while (++j < game->map.width)
 			if (game->map.map[i][j] == c)
-				return (0);
+				return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	flood_fill(t_game *game, int i, int j)
@@ -64,9 +64,9 @@ int	valid_path(t_game *game, char **argv)
 	tmp_game.player_pos.i = game->player_pos.i;
 	tmp_game.player_pos.j = game->player_pos.j;
 	flood_fill(&tmp_game, tmp_game.player_pos.i, tmp_game.player_pos.j);
-	if (find_char(&tmp_game, 'P' == 1)
-		&& find_char(&tmp_game, 'E' == 1)
-		&& find_char(&tmp_game, 'C') == 1)
+	if (find_char(&tmp_game, 'P')
+		&& find_char(&tmp_game, 'E')
+		&& find_char(&tmp_game, 'C'))
 		validity = 0;
 	else
 		validity = 1;
