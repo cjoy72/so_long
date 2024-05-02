@@ -6,7 +6,7 @@
 #    By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 17:37:18 by mtani             #+#    #+#              #
-#    Updated: 2024/05/02 12:42:08 by cbaroi           ###   ########.fr        #
+#    Updated: 2024/05/02 12:52:06 by cbaroi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,6 @@ fclean: clean
 
 leaks: all
 	valgrind $(VAL_FLAGS) ./$(NAME) maps/test.ber 2> leaks.log
-	sed -i.bak '5,7d' leaks.log
-	sed -i.bak '14,15d' leaks.log
-	rm -f leaks.log.bak
+	sed -i '7,8d' leaks.log && rm -rf leaks.log.bak
 	
 re: fclean all
