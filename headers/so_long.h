@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:10:57 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 20:47:57 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 20:54:48 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void		load_images(t_game *game);
 
 // check_map03.c
 
-void		file_descriptor(int *fd, char **argv)
+void		file_descriptor(int *fd, char **argv);
 int			find_char(t_game *game, char c);
 void		flood_fill(t_game *game, int i, int j);
 int			valid_path(t_game *game, char **argv);
