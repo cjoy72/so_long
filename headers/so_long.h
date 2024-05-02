@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:10:57 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 20:54:48 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 21:45:49 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int			handle_key(int key, t_game *game);
 
 // update_image.c
 
+int			free_and_close(int *fd, char *line);
 void		update_image_init(t_game *game);
 void		update_image(t_game *game, int key);
 

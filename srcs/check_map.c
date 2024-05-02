@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:11:05 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 20:47:28 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 21:46:14 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_if_rectangular(t_game *game, char **argv)
 		}
 		len = ft_strlen(line);
 		if (len != game->map.width)
-			return (1);
+			return (free_and_close(&fd, line));
 		i++;
 	}
 	free(line);

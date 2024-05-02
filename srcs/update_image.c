@@ -6,11 +6,18 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:10:59 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 22:12:49 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 21:45:41 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+int	free_and_close(int *fd, char *line)
+{
+	free(line);
+	close(*fd);
+	return (1);
+}
 
 void	update_image_init(t_game *game)
 {
