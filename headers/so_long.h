@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:10:57 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 22:16:25 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 19:47:04 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void		update_image(t_game *game, int key);
 void		image_error(t_game *game, char *message, int index);
 void		init_images(t_game *game);
 void		destroy_everything(t_game *game);
+void		load_updated_images(t_game *game);
 void		load_images(t_game *game);
 
 // check_map03.c

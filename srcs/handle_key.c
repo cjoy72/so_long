@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:19:01 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 23:11:31 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 19:48:02 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move_left(t_game *game)
 		game->map.map[game->player_pos.i][game->player_pos.j - 1] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.j--;
-		load_images(game);
+		load_updated_images(game);
 		update_image(game, XK_A);
 	}
 	printf("Game moves: %d\n", game->moves);
@@ -64,7 +64,7 @@ void	move_right(t_game *game)
 		game->map.map[game->player_pos.i][game->player_pos.j + 1] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.j++;
-		load_images(game);
+		load_updated_images(game);
 		update_image(game, XK_D);
 	}
 	printf("Game moves: %d\n", game->moves);
@@ -93,7 +93,7 @@ void	move_up(t_game *game)
 		game->map.map[game->player_pos.i - 1][game->player_pos.j] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.i--;
-		load_images(game);
+		load_updated_images(game);
 		update_image(game, XK_W);
 	}
 	printf("Game moves: %d\n", game->moves);
@@ -122,7 +122,7 @@ void	move_down(t_game *game)
 		game->map.map[game->player_pos.i + 1][game->player_pos.j] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.i++;
-		load_images(game);
+		load_updated_images(game);
 		update_image(game, XK_S);
 	}
 	printf("Game moves: %d\n", game->moves);

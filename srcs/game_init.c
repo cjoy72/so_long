@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:30:03 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/04/30 15:51:25 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/02 19:46:32 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,34 @@ void	destroy_everything(t_game *game)
 	free(game->mlx);
 	destroy_map(game);
 	exit(0);
+}
+
+void	load_updated_images(t_game *game)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	*sign;
+
+	sign = "10CPE";
+	i = game->player_pos.i - 2;
+	while (++i < game->player_pos.i + 2)
+	{
+		j = game->player_pos.j - 2;
+		while (++j < game->player_pos.j + 2)
+		{
+			k = -1;
+			while (++k < 5)
+			{
+				if (game->map.map[i][j] == sign[k])
+				{
+					mlx_put_image_to_window(game->mlx, game->window,
+						game->textures[k], j * SIZE, i * SIZE);
+					break ;
+				}
+			}
+		}
+	}
 }
 
 void	load_images(t_game *game)
