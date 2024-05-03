@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:01:19 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 23:42:03 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:22:04 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	valid_path(t_game *game, char **argv)
 	if (find_char(&tmp_game, 'P')
 		&& find_char(&tmp_game, 'E')
 		&& find_char(&tmp_game, 'C'))
-		validity = 0;
-	else
 		validity = 1;
+	else
+		validity = 0;
 	destroy_map(&tmp_game);
 	return (validity);
 }
