@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:10:57 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/03 15:39:53 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/03 15:49:34 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ typedef struct s_game
 	int			collectables;
 	int			moves;
 }				t_game;
-
-void	print_map(t_game *game);
 
 // so_long.c
 

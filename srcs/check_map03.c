@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:01:19 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/03 15:44:27 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/03 15:49:23 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,6 @@ void	flood_fill(t_game *game, int i, int j)
 	}
 }
 
-void	print_map(t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < game->map.height)
-	{
-		printf("%s", game->map.map[i]);
-	}
-	printf("\n");
-	printf("Map height: %d\n", game->map.height);
-	printf("Map width: %d\n", game->map.width);
-	printf("\n");
-}
-
 int	valid_path(t_game *game, char **argv)
 {
 	t_game	tmp_game;
@@ -79,7 +64,6 @@ int	valid_path(t_game *game, char **argv)
 	tmp_game.player_pos.i = game->player_pos.i;
 	tmp_game.player_pos.j = game->player_pos.j;
 	flood_fill(&tmp_game, tmp_game.player_pos.i, tmp_game.player_pos.j);
-	print_map(&tmp_game);
 	if (find_char(&tmp_game, 'P')
 		|| find_char(&tmp_game, 'E')
 		|| find_char(&tmp_game, 'C'))
