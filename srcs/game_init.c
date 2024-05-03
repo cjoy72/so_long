@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:30:03 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 19:46:32 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:26:01 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	init_images(t_game *game)
 		"textures/exit_close.xpm",
 	};
 
+	game->map.map[game->exit_pos.i][game->exit_pos.j] = '0';
 	size = SIZE;
 	i = -1;
 	while (++i < 5)

@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:10:59 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 21:45:41 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:28:58 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ void	update_image(t_game *game, int key)
 			game->textures[8], game->player_pos.j * SIZE,
 			game->player_pos.i * SIZE);
 	if (game->collectables == 0)
+	{
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->textures[9], game->exit_pos.j * SIZE,
 			game->exit_pos.i * SIZE);
+		game->map.map[game->exit_pos.i][game->exit_pos.j] = 'E';
+	}
 }
