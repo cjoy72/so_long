@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:10:59 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/06 16:54:47 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 17:00:03 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	do_nothing(char *str)
 {
 	while (*str)
 		str++;
-	ft_printf("%s\n", str);
+	str[0] = '\0';
 }
 
 int	free_and_close(int *fd, char *line)
