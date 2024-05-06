@@ -6,13 +6,14 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:10:57 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/03 15:49:34 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:56:02 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include <fcntl.h>
+# include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -66,6 +67,7 @@ int			handle_key(int key, t_game *game);
 
 // update_image.c
 
+void		do_nothing(char *str);
 int			free_and_close(int *fd, char *line);
 void		update_image_init(t_game *game);
 void		update_image(t_game *game, int key);
@@ -109,5 +111,13 @@ void		ft_file_check(char *file);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strlen(const char *s);
 void		check_args(int argc, char **argv);
+
+// ft_printf.c
+
+void		pf_putnbr(int nbr, size_t *count);
+void		pf_putstr(char *str, size_t *count);
+void		pf_putchar(char c, size_t *count);
+void		pf_flags(va_list args, char *str, size_t *count);
+int			ft_printf(char const *str, ...);
 
 #endif

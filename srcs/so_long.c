@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:48:55 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 21:37:35 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:54:41 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_char(t_game *game, char **argv)
 	int				k;
 	static char		*valid_chars = "01CEP";
 
-	printf("%c\n", argv[1][0] - 'm');
+	do_nothing(argv[1]);
 	i = -1;
 	while (++i < game->map.height)
 	{

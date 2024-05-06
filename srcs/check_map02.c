@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:42:21 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 20:16:42 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:57:03 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_exit_player_collectables(t_game *game, char **argv)
 	int		i;
 	int		j;
 
-	printf("%s\n", argv[1]);
+	do_nothing(argv[1]);
 	i = -1;
 	while (++i < game->map.height)
 	{
@@ -43,9 +43,7 @@ int	ft_check_wall(t_game *game, char **argv)
 {
 	int	i;
 
-	printf("%s\n ", argv[0]);
-	printf("Map Height: %d\n", game->map.height);
-	printf("Map Width: %d\n", game->map.width);
+	do_nothing(argv[1]);
 	if (game->map.map == NULL)
 		return (1);
 	i = -1;

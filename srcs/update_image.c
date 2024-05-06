@@ -6,11 +6,18 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:10:59 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/03 11:28:58 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:54:47 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+void	do_nothing(char *str)
+{
+	while (*str)
+		str++;
+	ft_printf("%s\n", str);
+}
 
 int	free_and_close(int *fd, char *line)
 {
@@ -39,7 +46,7 @@ void	update_image_init(t_game *game)
 				&size, &size);
 		if (game->textures[i + 5] == NULL)
 		{
-			printf("%d\n", i);
+			ft_printf("%d\n", i);
 			image_error(game, "Error\nmlx_xpm_file_to_image failed\n", i + 5);
 		}
 	}

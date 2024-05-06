@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:17:46 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/01 21:18:40 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:49:21 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(char *str, int status)
 {
-	printf("%s", str);
+	ft_printf("%s", str);
 	exit(status);
 }
 

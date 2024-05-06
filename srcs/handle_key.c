@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:19:01 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/02 21:05:25 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 16:50:54 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_left(t_game *game)
 	{
 		if (game->collectables == 0)
 		{
-			printf("You won!\nWith only %d moves\n", game->moves);
+			ft_printf("You won!\nWith only %d moves\n", game->moves);
 			destroy_everything(game);
 		}
 		else
@@ -38,7 +38,7 @@ void	move_left(t_game *game)
 		load_updated_images(game);
 		update_image(game, XK_A);
 	}
-	printf("Game moves: %d\n", game->moves);
+	ft_printf("Game moves: %d\n", game->moves);
 }
 
 void	move_right(t_game *game)
@@ -50,7 +50,7 @@ void	move_right(t_game *game)
 	{
 		if (game->collectables == 0)
 		{
-			printf("You won!\nWith only %d moves\n", game->moves);
+			ft_printf("You won!\nWith only %d moves\n", game->moves);
 			destroy_everything(game);
 		}
 		else
@@ -67,7 +67,7 @@ void	move_right(t_game *game)
 		load_updated_images(game);
 		update_image(game, XK_D);
 	}
-	printf("Game moves: %d\n", game->moves);
+	ft_printf("Game moves: %d\n", game->moves);
 }
 
 void	move_up(t_game *game)
@@ -79,7 +79,7 @@ void	move_up(t_game *game)
 	{
 		if (game->collectables == 0)
 		{
-			printf("You won!\nWith only %d moves\n", game->moves);
+			ft_printf("You won!\nWith only %d moves\n", game->moves);
 			destroy_everything(game);
 		}
 		else
@@ -96,7 +96,7 @@ void	move_up(t_game *game)
 		load_updated_images(game);
 		update_image(game, XK_W);
 	}
-	printf("Game moves: %d\n", game->moves);
+	ft_printf("Game moves: %d\n", game->moves);
 }
 
 void	move_down(t_game *game)
@@ -108,7 +108,7 @@ void	move_down(t_game *game)
 	{
 		if (game->collectables == 0)
 		{
-			printf("You won!\nWith only %d moves\n", game->moves);
+			ft_printf("You won!\nWith only %d moves\n", game->moves);
 			destroy_everything(game);
 		}
 		else
@@ -125,7 +125,7 @@ void	move_down(t_game *game)
 		load_updated_images(game);
 		update_image(game, XK_S);
 	}
-	printf("Game moves: %d\n", game->moves);
+	ft_printf("Game moves: %d\n", game->moves);
 }
 
 int	handle_key(int key, t_game *game)
@@ -143,11 +143,11 @@ int	handle_key(int key, t_game *game)
 		move_down(game);
 	if (key == XK_D || key == XK_d || key == XK_Right)
 		move_right(game);
-	printf("Moves Remaining: %d\n",
+	ft_printf("Moves Remaining: %d\n",
 		((game->map.height + game->map.width) * 5) - game->moves);
 	if (game->moves == ((game->map.height + game->map.width) * 5))
 	{
-		printf("Fai Schifo!\n");
+		ft_printf("You've lost!\n");
 		destroy_everything(game);
 		exit(0);
 	}

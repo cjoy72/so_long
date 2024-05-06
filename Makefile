@@ -6,13 +6,13 @@
 #    By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 17:37:18 by mtani             #+#    #+#              #
-#    Updated: 2024/05/02 12:52:06 by cbaroi           ###   ########.fr        #
+#    Updated: 2024/05/06 16:47:51 by cbaroi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = $(addprefix srcs/, so_long.c check_args.c check_map.c check_map02.c check_map03.c game_init.c update_image.c handle_key.c)
+SRCS = $(addprefix srcs/, so_long.c check_args.c check_map.c check_map02.c check_map03.c game_init.c update_image.c handle_key.c ft_printf.c)
 
 OBJS = $(SRCS:.c=.o) 
 
