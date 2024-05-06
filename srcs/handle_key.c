@@ -6,7 +6,7 @@
 /*   By: cbaroi <cbaroi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:19:01 by cbaroi            #+#    #+#             */
-/*   Updated: 2024/05/06 16:50:54 by cbaroi           ###   ########.fr       */
+/*   Updated: 2024/05/06 22:16:56 by cbaroi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,8 @@ int	handle_key(int key, t_game *game)
 	if (key == XK_D || key == XK_d || key == XK_Right)
 		move_right(game);
 	ft_printf("Moves Remaining: %d\n",
-		((game->map.height + game->map.width) * 5) - game->moves);
-	if (game->moves == ((game->map.height + game->map.width) * 5))
+		((game->map.height + game->map.width) * 10) - game->moves);
+	if (game->moves == ((game->map.height + game->map.width) * 10))
 	{
 		ft_printf("You've lost!\n");
 		destroy_everything(game);
