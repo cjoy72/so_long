@@ -1,6 +1,119 @@
-# so_long
+# 🎮 so_long
 
-It's a mini game that helps students to learn using Xserver using minilibX. Which is an API to facilitate Xserver use.
+A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect all items, avoid wall collisions, and reach the exit in as few moves as possible!
 
-SYNTAX:
-./so_long <path of the map>
+---
+
+## ✨ Features
+
+- 🖥️ **X11 & Wayland Support**: Native cross-platform display server support powered by MLX42 (OpenGL + GLFW).
+- 🧩 **Directional Movement**: Dynamic player sprites updating based on movement direction (Up, Down, Left, Right).
+- 🗺️ **Strict Map Parsing & Validation**:
+  - Validates map boundary walls.
+  - Ensures a valid path to all collectibles and the exit using a **flood-fill** algorithm.
+  - Checks rectangularity and required map components (`1`, `0`, `P`, `C`, `E`).
+- 🏃 **Real-time Move Counter**: Tracks and displays move counts in the terminal console.
+- 🔓 **Dynamic Exit Unlocking**: The exit gate visually unlocks only after all collectibles (`C`) are gathered.
+
+---
+
+## 🕹️ Controls
+
+| Action | Primary Key | Alternative Key |
+| :--- | :---: | :---: |
+| **Move Up** | <kbd>W</kbd> | <kbd>↑</kbd> |
+| **Move Down** | <kbd>S</kbd> | <kbd>↓</kbd> |
+| **Move Left** | <kbd>A</kbd> | <kbd>←</kbd> |
+| **Move Right** | <kbd>D</kbd> | <kbd>→</kbd> |
+| **Exit Game** | <kbd>ESC</kbd> | Window `X` Button |
+
+---
+
+## 🛠️ Prerequisites
+
+Ensure the following dependencies are installed on your Linux system:
+
+- **GCC** / Clang
+- **Make**
+- **CMake** (required to build MLX42)
+- **GLFW3** (`libglfw3-dev` on Debian/Ubuntu, `glfw` on Arch Linux)
+- **OpenGL** development libraries
+
+---
+
+## 🚀 Quick Start
+
+### Option 1: Run with `play.sh` (Recommended)
+
+Simply execute the quick-play script to automatically compile and launch the game with `maps/test.ber`:
+
+```bash
+./play.sh
+```
+
+### Option 2: Manual Build & Execution
+
+1. **Compile the game**:
+   ```bash
+   make
+   ```
+
+2. **Run with a map file**:
+   ```bash
+   ./so_long maps/test.ber
+   ```
+
+---
+
+## 🗺️ Map Format (`.ber`)
+
+Maps must be saved as `.ber` files and adhere to the following rules:
+
+| Tile Character | Description |
+| :---: | :--- |
+| `1` | **Wall** (Impassable border/obstacle) |
+| `0` | **Empty Space** (Walkable floor tile) |
+| `P` | **Player Starting Position** (Must be exactly 1) |
+| `C` | **Collectible** (Must have at least 1) |
+| `E` | **Exit** (Must have exactly 1) |
+
+### Example Map (`maps/test.ber`):
+
+```text
+1111111111111
+1000000000001
+1011000001101
+1000000000001
+1000000000001
+1000000000001
+1000000000001
+1010000000101
+1001000001001
+1000100010001
+1000010100001
+100000E000001
+1000000000001
+1000000000001
+1000000000001
+100000C000001
+100000P000001
+1111111111111
+```
+
+---
+
+## 💻 Compilation Commands
+
+| Command | Description |
+| :--- | :--- |
+| `make` | Compiles `MLX42` static library and builds `./so_long` |
+| `make clean` | Removes object files (`.o`) |
+| `make fclean` | Removes object files, binaries, and `MLX42` build directory |
+| `make re` | Performs `fclean` followed by `make` |
+| `make leaks` | Runs Valgrind leak checking on `./so_long maps/test.ber` |
+
+---
+
+## 📜 License
+
+Created as part of the 42 School curriculum.
