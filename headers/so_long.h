@@ -17,12 +17,24 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 # include <limits.h>
-# include "../mlx/mlx.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 
 # define SIZE			64
+
+# define XK_W			MLX_KEY_W
+# define XK_w			MLX_KEY_W
+# define XK_A			MLX_KEY_A
+# define XK_a			MLX_KEY_A
+# define XK_S			MLX_KEY_S
+# define XK_s			MLX_KEY_S
+# define XK_D			MLX_KEY_D
+# define XK_d			MLX_KEY_D
+# define XK_Up			MLX_KEY_UP
+# define XK_Left		MLX_KEY_LEFT
+# define XK_Down		MLX_KEY_DOWN
+# define XK_Right		MLX_KEY_RIGHT
+# define XK_Escape		MLX_KEY_ESCAPE
 
 typedef struct s_map
 {
@@ -40,9 +52,8 @@ typedef struct s_coord
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*window;
-	void		*textures[10];
+	mlx_t		*mlx;
+	mlx_image_t	*textures[10];
 	t_map		map;
 	t_coord		exit_pos;
 	t_coord		player_pos;
@@ -54,7 +65,7 @@ typedef struct s_game
 
 void		check_map_error(int index);
 char		*cir_utils(int *fd, t_game *game, char **argv);
-int			x_pressed(t_game *game);
+void		x_pressed(void *param);
 int			check_char(t_game *game, char **argv);
 
 // handle_key.c
@@ -64,6 +75,7 @@ void		move_right(t_game *game);
 void		move_up(t_game *game);
 void		move_down(t_game *game);
 int			handle_key(int key, t_game *game);
+void		handle_key_mlx42(mlx_key_data_t keydata, void *param);
 
 // update_image.c
 

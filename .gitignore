@@ -1,0 +1,8 @@
+MLX42/
+so_long
+*.o
+*.a
+MLX42/build/
+leaks.log
+.DS_Store
+

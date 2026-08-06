@@ -14,111 +14,93 @@
 
 void	image_error(t_game *game, char *message, int index)
 {
-	int	i;
-
+	(void)index;
+	if (game->mlx)
+		mlx_terminate(game->mlx);
 	destroy_map(game);
-	i = -1;
-	while (++i < index)
-		if (game->textures[i] != NULL)
-			mlx_destroy_image(game->mlx, game->textures[i]);
-	mlx_destroy_window(game->mlx, game->window);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
 	ft_error(message, 1);
 }
 
 void	init_images(t_game *game)
 {
-	int			i;
-	int			size;
-	static char	*path[] = {
-		"textures/wall.xpm",
-		"textures/grass.xpm",
-		"textures/collectable.xpm",
-		"textures/character_down.xpm",
-		"textures/exit_close.xpm",
+	int				i;
+	mlx_texture_t	*texture;
+	static char		*path[] = {
+		"textures/wall.png",
+		"textures/grass.png",
+		"textures/collectable.png",
+		"textures/character_down.png",
+		"textures/exit_close.png",
 	};
 
 	game->map.map[game->exit_pos.i][game->exit_pos.j] = '0';
-	size = SIZE;
 	i = -1;
 	while (++i < 5)
 	{
-		game->textures[i] = mlx_xpm_file_to_image(game->mlx, path[i],
-				&size, &size);
-		if (game->textures[i] == NULL)
-			image_error(game, "Error\nmlx_xpm_file_to_image failed\n", i);
+		texture = mlx_load_png(path[i]);
+		if (!texture)
+			image_error(game, "Error\nmlx_load_png failed\n", i);
+		game->textures[i] = mlx_texture_to_image(game->mlx, texture);
+		mlx_delete_texture(texture);
+		if (!game->textures[i])
+			image_error(game, "Error\nmlx_texture_to_image failed\n", i);
 	}
 	update_image_init(game);
 }
 
 void	destroy_everything(t_game *game)
 {
-	int	i;
-
-	i = -1;
-	while (++i < 10)
-		if (game->textures[i] != NULL)
-			mlx_destroy_image(game->mlx, game->textures[i]);
-	mlx_destroy_window(game->mlx, game->window);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
+	if (game->mlx)
+		mlx_terminate(game->mlx);
 	destroy_map(game);
 	exit(0);
 }
 
 void	load_updated_images(t_game *game)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*sign;
-
-	sign = "10CPE";
-	i = game->player_pos.i - 2;
-	while (++i < game->player_pos.i + 2)
-	{
-		j = game->player_pos.j - 2;
-		while (++j < game->player_pos.j + 2)
-		{
-			k = -1;
-			while (++k < 5)
-			{
-				if (game->map.map[i][j] == sign[k])
-				{
-					mlx_put_image_to_window(game->mlx, game->window,
-						game->textures[k], j * SIZE, i * SIZE);
-					break ;
-				}
-			}
-		}
-	}
+	(void)game;
 }
 
 void	load_images(t_game *game)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*sign;
+	int	i;
+	int	j;
 
-	sign = "10CPE";
+	i = -1;
+	while (++i < game->map.height)
+	{
+		j = -1;
+		while (++j < game->map.width)
+			mlx_image_to_window(game->mlx, game->textures[1], j * SIZE, i * SIZE);
+	}
 	i = -1;
 	while (++i < game->map.height)
 	{
 		j = -1;
 		while (++j < game->map.width)
 		{
-			k = -1;
-			while (++k < 5)
-			{
-				if (game->map.map[i][j] == sign[k])
-				{
-					mlx_put_image_to_window(game->mlx, game->window,
-						game->textures[k], j * SIZE, i * SIZE);
-					break ;
-				}
-			}
+			if (game->map.map[i][j] == '1')
+				mlx_image_to_window(game->mlx, game->textures[0], j * SIZE, i * SIZE);
+			else if (game->map.map[i][j] == 'C')
+				mlx_image_to_window(game->mlx, game->textures[2], j * SIZE, i * SIZE);
 		}
 	}
+	mlx_image_to_window(game->mlx, game->textures[4], game->exit_pos.j * SIZE, game->exit_pos.i * SIZE);
+	mlx_image_to_window(game->mlx, game->textures[9], game->exit_pos.j * SIZE, game->exit_pos.i * SIZE);
+	if (game->textures[9]->count > 0)
+		game->textures[9]->instances[0].enabled = false;
+
+	mlx_image_to_window(game->mlx, game->textures[5], game->player_pos.j * SIZE, game->player_pos.i * SIZE);
+	mlx_image_to_window(game->mlx, game->textures[6], game->player_pos.j * SIZE, game->player_pos.i * SIZE);
+	mlx_image_to_window(game->mlx, game->textures[7], game->player_pos.j * SIZE, game->player_pos.i * SIZE);
+	mlx_image_to_window(game->mlx, game->textures[8], game->player_pos.j * SIZE, game->player_pos.i * SIZE);
+
+	if (game->textures[5]->count > 0)
+		game->textures[5]->instances[0].enabled = false;
+	if (game->textures[6]->count > 0)
+		game->textures[6]->instances[0].enabled = false;
+	if (game->textures[7]->count > 0)
+		game->textures[7]->instances[0].enabled = true;
+	if (game->textures[8]->count > 0)
+		game->textures[8]->instances[0].enabled = false;
 }

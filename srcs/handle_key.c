@@ -12,6 +12,24 @@
 
 #include "../headers/so_long.h"
 
+static void	collect_item(t_game *game, int i, int j)
+{
+	size_t	k;
+
+	game->collectables--;
+	k = 0;
+	while (k < game->textures[2]->count)
+	{
+		if (game->textures[2]->instances[k].x == j * SIZE &&
+			game->textures[2]->instances[k].y == i * SIZE)
+		{
+			game->textures[2]->instances[k].enabled = false;
+			break ;
+		}
+		k++;
+	}
+}
+
 void	move_left(t_game *game)
 {
 	game->moves++;
@@ -31,11 +49,10 @@ void	move_left(t_game *game)
 		game->map.map[game->player_pos.i][game->player_pos.j - 1] == '0')
 	{
 		if (game->map.map[game->player_pos.i][game->player_pos.j - 1] == 'C')
-			game->collectables--;
+			collect_item(game, game->player_pos.i, game->player_pos.j - 1);
 		game->map.map[game->player_pos.i][game->player_pos.j - 1] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.j--;
-		load_updated_images(game);
 		update_image(game, XK_A);
 	}
 	ft_printf("Game moves: %d\n", game->moves);
@@ -60,11 +77,10 @@ void	move_right(t_game *game)
 		game->map.map[game->player_pos.i][game->player_pos.j + 1] == '0')
 	{
 		if (game->map.map[game->player_pos.i][game->player_pos.j + 1] == 'C')
-			game->collectables--;
+			collect_item(game, game->player_pos.i, game->player_pos.j + 1);
 		game->map.map[game->player_pos.i][game->player_pos.j + 1] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.j++;
-		load_updated_images(game);
 		update_image(game, XK_D);
 	}
 	ft_printf("Game moves: %d\n", game->moves);
@@ -89,11 +105,10 @@ void	move_up(t_game *game)
 		game->map.map[game->player_pos.i - 1][game->player_pos.j] == '0')
 	{
 		if (game->map.map[game->player_pos.i - 1][game->player_pos.j] == 'C')
-			game->collectables--;
+			collect_item(game, game->player_pos.i - 1, game->player_pos.j);
 		game->map.map[game->player_pos.i - 1][game->player_pos.j] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.i--;
-		load_updated_images(game);
 		update_image(game, XK_W);
 	}
 	ft_printf("Game moves: %d\n", game->moves);
@@ -118,11 +133,10 @@ void	move_down(t_game *game)
 		game->map.map[game->player_pos.i + 1][game->player_pos.j] == '0')
 	{
 		if (game->map.map[game->player_pos.i + 1][game->player_pos.j] == 'C')
-			game->collectables--;
+			collect_item(game, game->player_pos.i + 1, game->player_pos.j);
 		game->map.map[game->player_pos.i + 1][game->player_pos.j] = 'P';
 		game->map.map[game->player_pos.i][game->player_pos.j] = '0';
 		game->player_pos.i++;
-		load_updated_images(game);
 		update_image(game, XK_S);
 	}
 	ft_printf("Game moves: %d\n", game->moves);
@@ -152,4 +166,13 @@ int	handle_key(int key, t_game *game)
 		exit(0);
 	}
 	return (0);
+}
+
+void	handle_key_mlx42(mlx_key_data_t keydata, void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	if (keydata.action == MLX_PRESS || keydata.action == MLX_REPEAT)
+		handle_key(keydata.key, game);
 }

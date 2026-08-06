@@ -47,10 +47,12 @@ char	*cir_utils(int *fd, t_game *game, char **argv)
 	return (line);
 }
 
-int	x_pressed(t_game *game)
+void	x_pressed(void *param)
 {
+	t_game	*game;
+
+	game = (t_game *)param;
 	destroy_everything(game);
-	return (0);
 }
 
 int	check_char(t_game *game, char **argv)
@@ -84,21 +86,15 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	check_map(argv, &game);
-	game.mlx = mlx_init(game.mlx);
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	game.mlx = mlx_init(game.map.width * SIZE,
+			game.map.height * SIZE, "so_long", false);
 	if (game.mlx == NULL)
 		ft_error("Error\nmlx_init failed\n", 1);
-	game.window = mlx_new_window(game.mlx, game.map.width * SIZE,
-			game.map.height * SIZE, "so_long");
-	if (game.window == NULL)
-	{
-		mlx_destroy_display(game.mlx);
-		free(game.mlx);
-		ft_error("Error\nmlx_new_window failed\n", 1);
-	}
 	init_images(&game);
 	load_images(&game);
-	mlx_key_hook(game.window, handle_key, &game);
-	mlx_hook(game.window, 17, 1L << 17, x_pressed, &game);
+	mlx_key_hook(game.mlx, handle_key_mlx42, &game);
+	mlx_close_hook(game.mlx, x_pressed, &game);
 	mlx_loop(game.mlx);
 	destroy_everything(&game);
 }
