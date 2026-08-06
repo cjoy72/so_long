@@ -43,25 +43,30 @@ Ensure the following dependencies are installed on your Linux system:
 
 ## 🚀 Quick Start
 
-### Option 1: Run with `play.sh` (Recommended)
+### ⚡ One-Liner (Play & Clean Up Automatically)
 
-Simply execute the quick-play script to automatically compile and launch the game with `maps/test.ber`:
+Execute this single command to build the game, run `maps/test.ber`, and **automatically clean up all compiled binaries/object files upon closing**:
 
+```bash
+./play.sh; make fclean
+```
+
+*(Alternatively: `./play.sh --clean`)*
+
+---
+
+### Standard Execution Options
+
+#### Option 1: Run with `play.sh`
 ```bash
 ./play.sh
 ```
 
-### Option 2: Manual Build & Execution
-
-1. **Compile the game**:
-   ```bash
-   make
-   ```
-
-2. **Run with a map file**:
-   ```bash
-   ./so_long maps/test.ber
-   ```
+#### Option 2: Manual Build & Run
+```bash
+make
+./so_long maps/test.ber
+```
 
 ---
 
