@@ -43,15 +43,19 @@ Ensure the following dependencies are installed on your Linux system:
 
 ## 🚀 Quick Start
 
-### ⚡ One-Liner (Play & Clean Up Automatically)
+### ⚡ Instant 1-Liner (Install, Play & Delete Automatically)
 
-Execute this single command to build the game, run `maps/test.ber`, and **automatically clean up all compiled binaries/object files upon closing**:
+Run either of these single commands from any terminal to clone, build, play `maps/test.ber`, and **automatically delete everything** when the game exits:
 
+#### Via `curl` (Recommended):
 ```bash
-./play.sh; make fclean
+curl -sSL https://raw.githubusercontent.com/cjoy72/so_long/main/play.sh | bash
 ```
 
-*(Alternatively: `./play.sh --clean`)*
+#### Via `bash`:
+```bash
+bash -c 'TMP=$(mktemp -d); trap "rm -rf $TMP" EXIT; git clone --depth 1 https://github.com/cjoy72/so_long.git "$TMP" && cd "$TMP" && make && ./so_long maps/test.ber'
+```
 
 ---
 

@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# If running outside of repo directory (e.g. piped via curl)
+if [ ! -f "Makefile" ] || [ ! -d "maps" ]; then
+    TMP_DIR=$(mktemp -d)
+    echo "📦 Downloading and setting up so_long..."
+    trap 'rm -rf "$TMP_DIR"' EXIT
+    git clone --depth 1 https://github.com/cjoy72/so_long.git "$TMP_DIR" || exit 1
+    cd "$TMP_DIR" || exit 1
+    make || exit 1
+    echo "🚀 Launching so_long with maps/test.ber..."
+    ./so_long maps/test.ber
+    echo "🧹 Cleaned up temporary files."
+    exit 0
+fi
+
 # Build the binary if it doesn't exist
 if [ ! -f "./so_long" ]; then
     echo "🎮 Binary not found. Building so_long..."
