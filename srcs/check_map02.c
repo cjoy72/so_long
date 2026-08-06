@@ -17,7 +17,7 @@ int	check_exit_player_collectables(t_game *game, char **argv)
 	int		i;
 	int		j;
 
-	argv++;
+	(void)argv;
 	i = -1;
 	while (++i < game->map.height)
 	{
@@ -43,7 +43,7 @@ int	ft_check_wall(t_game *game, char **argv)
 {
 	int	i;
 
-	argv++;
+	(void)argv;
 	if (game->map.map == NULL)
 		return (1);
 	i = -1;
@@ -118,6 +118,6 @@ int	create_map(t_game *game, char **argv)
 		}
 		i++;
 	}
-	game->map.map[i] = '\0';
+	game->map.map[i] = NULL;
 	return (0);
 }

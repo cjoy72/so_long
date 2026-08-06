@@ -62,7 +62,7 @@ int	check_char(t_game *game, char **argv)
 	int				k;
 	static char		*valid_chars = "01CEP";
 
-	argv++;
+	(void)argv;
 	i = -1;
 	while (++i < game->map.height)
 	{

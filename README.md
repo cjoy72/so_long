@@ -1,6 +1,6 @@
 # 🎮 so_long
 
-A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect all items, avoid wall collisions, and reach the exit in as few moves as possible!
+A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect all items, avoid wall collisions, and reach the exit in as few moves as possible! Fully compatible with **macOS** and **Linux distributions**.
 
 ![so_long gameplay](assets/screenshot.png)
 
@@ -8,7 +8,7 @@ A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect
 
 ## ✨ Features
 
-- 🖥️ **X11 & Wayland Support**: Native cross-platform display server support powered by MLX42 (OpenGL + GLFW).
+- 💻 **Cross-Platform Compatibility**: Full support for both **macOS** (Apple Silicon & Intel) and **Linux Distributions** (X11 & Wayland).
 - 🧩 **Directional Movement**: Dynamic player sprites updating based on movement direction (Up, Down, Left, Right).
 - 🗺️ **Strict Map Parsing & Validation**:
   - Validates map boundary walls.
@@ -33,13 +33,28 @@ A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect
 
 ## 🛠️ Prerequisites
 
-Ensure the following dependencies are installed on your Linux system:
+Ensure the required dependencies are installed on your operating system:
 
-- **GCC** / Clang
-- **Make**
-- **CMake** (required to build MLX42)
-- **GLFW3** (`libglfw3-dev` on Debian/Ubuntu, `glfw` on Arch Linux)
-- **OpenGL** development libraries
+### 🍎 macOS
+Install dependencies via [Homebrew](https://brew.sh/):
+```bash
+brew install glfw cmake
+```
+
+### 🐧 Linux Distributions
+
+- **Debian / Ubuntu**:
+  ```bash
+  sudo apt update && sudo apt install -y build-essential gcc clang make cmake libglfw3-dev
+  ```
+- **Arch Linux**:
+  ```bash
+  sudo pacman -S base-devel gcc clang make cmake glfw-wayland
+  ```
+- **Fedora**:
+  ```bash
+  sudo dnf install @development-tools gcc clang make cmake glfw-devel
+  ```
 
 ---
 
@@ -121,7 +136,7 @@ Maps must be saved as `.ber` files and adhere to the following rules:
 | `make clean` | Removes object files (`.o`) |
 | `make fclean` | Removes object files, binaries, and `MLX42` build directory |
 | `make re` | Performs `fclean` followed by `make` |
-| `make leaks` | Runs Valgrind leak checking on `./so_long maps/test.ber` |
+| `make leaks` | Runs memory leak check (`leaks` on macOS / `valgrind` on Linux) on `./so_long maps/test.ber` |
 
 ---
 

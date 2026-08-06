@@ -22,7 +22,7 @@ void	ft_file_check(char *file)
 {
 	int	fd;
 
-	if (open(file, __O_DIRECTORY) >= 0)
+	if (open(file, O_DIRECTORY) >= 0)
 		ft_error("Error\nInvalid file, probably a folder given\n", 1);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
