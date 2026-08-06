@@ -2,6 +2,8 @@
 
 A smooth, top-down 2D mini game built in C using **MLX42** and **GLFW**. Collect all items, avoid wall collisions, and reach the exit in as few moves as possible!
 
+![so_long gameplay](assets/screenshot.png)
+
 ---
 
 ## ✨ Features
